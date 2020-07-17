@@ -31,7 +31,7 @@ class Node:
     def print_tree(self):
         if self.left:
             self.left.print_tree()
-        print( self.data),
+        print(self.data)
         if self.right:
             self.right.print_tree()
 
