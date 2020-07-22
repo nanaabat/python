@@ -79,32 +79,43 @@ shipping_cost = product.findAll("span", {"class": "s-item__shipping s-item__logi
 print("Shipping Cost: " + shipping_cost[0].text)
 
 
-'''
+
 
 #Going through the products to print out all the options
 for product in ebay_auction_products:
 
+
+
     product_name = product.div.img["alt"] #name of the products
+    print("\n")
+    #print(product)
+    print(product_name)
 
     #subclass title of the product
     product_sub_title = product.findAll("div", {"class": "s-item__subtitle"})
     subtitle = product_sub_title[0].text
+    print(subtitle)
 
     #rating
-    ratings = product.findAll("div", {"class": "s-item__reviews"})
-    rating = ratings[0].text.strip()
+    #ratings = product.findAll("div", {"class": "s-item__reviews"})
+    #rating = ratings[0].text.strip()
+    #print(rating)
 
     #price of the products now
-    price_of_product = product.findAll("div", {"class" : "s-item__price"})
-    price = price_of_product[0].text
+    price_of_product = product.findAll("span", {"class" : "s-item__price"})
+    price = price_of_product[0].text.strip()
+    print(price)
+
+    bids_now  = product.findAll("span", {"class": "s-item__bids s-item__bidCount"})
+    print(bids_now[0].text)
 
 
     #how many days left for the bid to be done
-    days_left = product.findAll("div" , {"class" : "s-item__time-left"})
+    days_left = product.findAll("span" , {"class" : "s-item__time-left"})
     days = days_left[0].text
+    print(days)
 
     #shipping cost
     shipping_cost = product.findAll("span", {"class": "s-item__shipping s-item__logisticsCost"})
     shipping = shipping_cost[0].text
-
-'''
+    print(shipping)
